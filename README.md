@@ -13,10 +13,9 @@ https://kodaktor.ru/g/07092018
 Создание простого сервера на простом модуле http
 https://kodaktor.ru/g/14092018
 
-```
-NODE-002 
+
++ NODE-002 
 Считывание информации из API
-```
 https://kodaktor.ru/g/weather_task
 ```
 NODE-003

@@ -17,21 +17,20 @@ https://kodaktor.ru/g/14092018
 + NODE-002 
 Считывание информации из API
 https://kodaktor.ru/g/weather_task
-```
-NODE-003
+
++ NODE-003
 Считывание информации из RSS
-```
 https://kodaktor.ru/rss_task
+
 ```
 NODE-004
 Анализ стрима
 ```
 https://github.com/GossJS/stream
 
-```
-GZIP-0001
+
++ GZIP-0001
 Созданиие зипующего стрима
-```
 https://kodaktor.ru/g/zip_5ce7b 
 
 ```

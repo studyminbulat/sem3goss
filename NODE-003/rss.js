@@ -25,9 +25,6 @@ app
             const news = result.rss.channel[0].item.map(i => ({title: i.title, link: i.link})).slice(0, Number(n) )
              res.send({news})
         })
-        
-       
-        
         })
     .catch(error => 
     {

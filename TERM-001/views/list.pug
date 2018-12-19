@@ -1,0 +1,11 @@
+doctype html
+html(lang='ru')
+  head
+    title= title
+  body
+    h1 Пример работы шаблонизатора
+    #container
+      p Список постов:
+      ol
+        each item in posts
+          li= item.title

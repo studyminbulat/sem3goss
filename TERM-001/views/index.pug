@@ -1,0 +1,53 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" href="style.css")
+    script(src="index.js")
+  body
+    .wrapper
+        .forms
+            .form#addForm
+                h2 Add
+                .row
+                    label(for="id") ID
+                    input#addId(type="number")
+                .row
+                    label(for="id") Title
+                    input#title(type="text")
+                .row
+                    label(for="id") Content
+                    input#content(type="text")
+                .row
+                    label(for="id") Categories
+                    input#categories(type="text")
+                .rowSubmit
+                    button#add(type="submit" onclick="addPost()") Add 
+            .form#findForm
+                h2 Find
+                .row
+                    label(for="id") ID
+                    input#findId(type="number")
+                .rowSubmit
+                    button#find(type="submit" onclick="getPostById()") Find
+                    button#reset(type="submit" onclick="getAllPosts()") Reset
+                
+        .list
+            h2 Posts
+            table#posts
+                thead
+                    tr
+                        th ID
+                        th Title
+                        th Content
+                        th Categories
+                        th Actions
+                tbody
+                    
+template#tableRow
+    tr
+        td.id 1
+        td.title Title Name
+        td.content Content text
+        td.categories Categories names
+        td 
+            button.delete Delete

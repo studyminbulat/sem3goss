@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic-ext");
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+.wrapper .forms {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.wrapper .forms .form {
+  width: calc(100% - 100px);
+  display: grid;
+  grid-auto-rows: min-content;
+}
+.wrapper .forms .form .row {
+  display: grid;
+  grid-template-columns: minmax(100px, max-content) 1fr;
+}
+.wrapper .forms .form .row label {
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+}
+.wrapper input[type="text"],
+.wrapper input[type="number"] {
+  border: 1px #000 solid;
+  background-color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+}
+.wrapper input[type="submit"],
+.wrapper button {
+  border: 1px #000 solid;
+  background-color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+.wrapper table {
+  width: 100%;
+  border-spacing: 0;
+}
+.wrapper table td,
+.wrapper table th {
+  border-bottom: 1px #808080 solid;
+  padding: 5px 10px;
+}
+.wrapper table td:nth-child(n+2),
+.wrapper table th:nth-child(n+2) {
+  border-left: 1px #eee solid;
+}
+.wrapper table th {
+  padding: 10px;
+}

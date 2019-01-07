@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./mysqlcnf/mysql:/etc/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: cRLBHTJlQ70Ntl8TixGCeVPobf8wV9CXxQ7LQoNU0hQuq0WLP75XuFOKw70gzDbBeFfkdHCpQi0H86VojiAHvW6Cky847L0Q0BQs
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - mysql:db
+    #ports:
+    #  - 8765:80
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: cRLBHTJlQ70Ntl8TixGCeVPobf8wV9CXxQ7LQoNU0hQuq0WLP75XuFOKw70gzDbBeFfkdHCpQi0H86VojiAHvW6Cky847L0Q0BQs
+      VIRTUAL_HOST: pma.minbulat.ru
+      LETSENCRYPT_HOST: pma.minbulat.ru
+      LETSENCRYPT_EMAIL: admin@minbulat.ru
+    depends_on:
+      - mysql
+    
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/etc/nginx/vhost.d"
+      - "/usr/share/nginx/html"
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "/etc/nginx/certs"
+    restart: always 
+    depends_on:
+      - mysql
+
+  letsencrypt-nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./certs:/etc/nginx/certs:rw"
+    volumes_from:
+      - "nginx-proxy"
+    restart: always 
+    depends_on:
+      - mysql

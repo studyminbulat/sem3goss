@@ -13,7 +13,7 @@ const renderRow = post => {
 }
 
 const getAllPosts = () => {
-    fetch('/api/posts')
+    fetch('https://goss-minbulat.c9users.io:8080/api/posts')
       .then(response => response.json())
       .then(data => {
           posts = data
@@ -39,7 +39,7 @@ const getAllPosts = () => {
 }
 
 const del = id => {
-    fetch(`/api/posts/${id}`, {method: 'delete'})
+    fetch(`https://goss-minbulat.c9users.io:8080/api/posts/${id}`, {method: 'delete'})
       .then(response => {
           console.log(response)
           getAllPosts()
